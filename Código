@@ -1,0 +1,30 @@
+const int led = D6;
+const int led1 = SCL;
+const int blocoA = D5;
+const int blocoB = D7;
+void setup() { 
+  pinMode(blocoA, INPUT_PULLUP);
+  pinMode(blocoB, INPUT_PULLUP); 
+  pinMode(led, OUTPUT);
+  pinMode(led1, OUTPUT);
+  Serial.begin(9600);
+  } 
+void loop() {
+
+  Serial.println(digitalRead(blocoB));
+  if (digitalRead(blocoA) == LOW) {
+    // fio está OK
+    digitalWrite(led, LOW);
+  } else {
+    // fio cortado
+    digitalWrite(led, HIGH);
+}
+
+  if (digitalRead(blocoB) == LOW) {
+
+    digitalWrite(led1, LOW);
+  } else {
+
+    digitalWrite(led1, HIGH);
+  }
+  delay(1000);
